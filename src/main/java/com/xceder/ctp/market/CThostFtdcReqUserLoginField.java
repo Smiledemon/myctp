@@ -118,4 +118,16 @@ public class CThostFtdcReqUserLoginField extends StructObject {
 	public CThostFtdcReqUserLoginField(Pointer pointer) {
 		super(pointer);
 	}
+
+    public void setBrokerID(String brokerID) {
+		this.io.getPointerField(this,1).setCString(brokerID);
+    }
+
+	public void setUserID(String userID) {
+		this.io.getPointerField(this,1).setCString(userID);
+	}
+
+	public void setPassword(String password) {
+		this.io.getPointerField(this,1).setCString(password);
+	}
 }
