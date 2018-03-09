@@ -378,7 +378,7 @@ public class ThosttraderapiLibrary {
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_CAT_AssetmgrFuture = (char)'2';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
-	public static final char THOST_FTDC_FTC_BankLaunchBankToBroker = (char)'102001';
+	public static final char THOST_FTDC_FTC_BankLaunchBankToBroker = (char)'0';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_AMLCL_CheckLevel2 = (char)'2';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
@@ -534,6 +534,8 @@ public class ThosttraderapiLibrary {
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_CM_ShortConnect = (char)'0';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
+	public static final char THOST_FTDC_VTC_FutureBankToFuture = (char)'2';
+	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_IER_Manual = (char)'2';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_SIS_Initialize = (char)'1';
@@ -548,7 +550,7 @@ public class ThosttraderapiLibrary {
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_FI_SettlementFund = (char)'F';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
-	public static final char THOST_FTDC_FTC_BrokerLaunchBankToBroker = (char)'202001';
+	public static final char THOST_FTDC_FTC_BrokerLaunchBankToBroker = (char)'1';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_CC_BidPriceLesserEqualStopPrice = (char)'H';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
@@ -557,6 +559,8 @@ public class ThosttraderapiLibrary {
 	public static final char THOST_FTDC_TCS_Connected = (char)'2';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_BRORF_BrokerNotNeedRepeal = (char)'0';
+	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
+	public static final char THOST_FTDC_VTC_FutureFutureToBank = (char)'3';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_HB_Yes = (char)'1';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
@@ -776,7 +780,7 @@ public class ThosttraderapiLibrary {
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_CSS_Failure = (char)'7';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
-	public static final char THOST_FTDC_FTC_BrokerLaunchBrokerToBank = (char)'202002';
+	public static final char THOST_FTDC_FTC_BrokerLaunchBrokerToBank = (char)'3';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_URT_ConditionOrder = (char)'5';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
@@ -1886,6 +1890,8 @@ public class ThosttraderapiLibrary {
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_BFC_StockDisposal = (char)'O';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
+	public static final char THOST_FTDC_VTC_BankBankToFuture = (char)'0';
+	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_TRDT_OptionsExecution = (char)'1';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_PSD_Today = (char)'1';
@@ -2186,6 +2192,8 @@ public class ThosttraderapiLibrary {
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_FAS_Low = (char)'1';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
+	public static final char THOST_FTDC_VTC_BankFutureToBank = (char)'1';
+	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_CHU_Fail = (char)'2';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_TVF_Reverse = (char)'2';
@@ -2394,7 +2402,7 @@ public class ThosttraderapiLibrary {
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_CC_AskPriceGreaterEqualStopPrice = (char)'A';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
-	public static final char THOST_FTDC_FTC_BankLaunchBrokerToBank = (char)'102002';
+	public static final char THOST_FTDC_FTC_BankLaunchBrokerToBank = (char)'2';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>
 	public static final char THOST_FTDC_SoM_Copy = (char)'4';
 	/// <i>native declaration : ThostFtdcUserApiDataType.h</i>

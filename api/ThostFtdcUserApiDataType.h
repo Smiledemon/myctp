@@ -2630,13 +2630,13 @@ typedef char TThostFtdcVirementAvailAbilityType;
 ///TFtdcVirementTradeCodeType��һ�����״�������
 /////////////////////////////////////////////////////////////////////////
 ///���з��������ʽ�ת�ڻ�
-//#define THOST_FTDC_VTC_BankBankToFuture '102001'
+#define THOST_FTDC_VTC_BankBankToFuture '0'
 ///���з����ڻ��ʽ�ת����
-//#define THOST_FTDC_VTC_BankFutureToBank '102002'
+#define THOST_FTDC_VTC_BankFutureToBank '1'
 ///�ڻ����������ʽ�ת�ڻ�
-//#define THOST_FTDC_VTC_FutureBankToFuture '202001'
+#define THOST_FTDC_VTC_FutureBankToFuture '2'
 ///�ڻ������ڻ��ʽ�ת����
-//#define THOST_FTDC_VTC_FutureFutureToBank '202002'
+#define THOST_FTDC_VTC_FutureFutureToBank '3'
 
 typedef char TThostFtdcVirementTradeCodeType;
 
@@ -4521,13 +4521,13 @@ typedef char TThostFtdcMonthBillTradeSumType;
 ///TFtdcFBTTradeCodeEnumType��һ�����ڽ��״���ö������
 /////////////////////////////////////////////////////////////////////////
 ///���з�������ת�ڻ�
-#define THOST_FTDC_FTC_BankLaunchBankToBroker '102001'
+#define THOST_FTDC_FTC_BankLaunchBankToBroker '0'
 ///�ڻ���������ת�ڻ�
-#define THOST_FTDC_FTC_BrokerLaunchBankToBroker '202001'
+#define THOST_FTDC_FTC_BrokerLaunchBankToBroker '1'
 ///���з����ڻ�ת����
-#define THOST_FTDC_FTC_BankLaunchBrokerToBank '102002'
+#define THOST_FTDC_FTC_BankLaunchBrokerToBank '2'
 ///�ڻ������ڻ�ת����
-#define THOST_FTDC_FTC_BrokerLaunchBrokerToBank '202002'
+#define THOST_FTDC_FTC_BrokerLaunchBrokerToBank '3'
 
 typedef char TThostFtdcFBTTradeCodeEnumType;
 
