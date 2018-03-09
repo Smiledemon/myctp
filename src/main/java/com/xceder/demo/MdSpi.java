@@ -14,6 +14,11 @@ import org.bridj.ann.Virtual;
  */
 public class MdSpi extends CThostFtdcMdSpi{
     CThostFtdcMdApi mdApi;
+
+    public MdSpi(CThostFtdcMdApi mdApi) {
+        this.mdApi = mdApi;
+    }
+
     @Virtual(0)
     public void OnFrontConnected() {
         System.out.println("OnFrontConnected");
@@ -21,7 +26,7 @@ public class MdSpi extends CThostFtdcMdSpi{
         userLoginField.setBrokerID("9999");
         userLoginField.setUserID("xpyl");
         userLoginField.setPassword("yaoling520");
-        int iResult = mdApi.ReqUserLogin(Pointer.getPointer(userLoginField),0);
+        this.mdApi.ReqUserLogin(Pointer.pointerTo(userLoginField),1);
     }
 
     @Virtual(1)
@@ -35,10 +40,9 @@ public class MdSpi extends CThostFtdcMdSpi{
     public void OnRspUserLogin(Pointer<CThostFtdcRspUserLoginField> pRspUserLogin, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspUserLogin");
         System.out.println("获取当前交易日"+this.mdApi.GetTradingDay());
-        int result= this.mdApi.SubscribeMarketData(Pointer.pointerToCStrings("cu1205"),1);
+        int result= this.mdApi.SubscribeMarketData(Pointer.pointerToCStrings("IF1612"),1);
+        result= this.mdApi.SubscribeMarketData(Pointer.pointerToCStrings("IF1701"),1);
         System.out.println(result == 0 ? "成功" : "失败");
-        int res = this.mdApi.SubscribeForQuoteRsp(Pointer.pointerToCStrings("cu1206"),2);
-        System.out.println(res == 0 ? "成功" : "失败");
 
     }
 

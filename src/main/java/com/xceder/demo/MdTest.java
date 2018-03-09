@@ -18,12 +18,13 @@ public class MdTest {
         BridJ.register(CThostFtdcMdApi.class);
         BridJ.register(CThostFtdcMdSpi.class);
         CThostFtdcMdApi mdApi = CThostFtdcMdApi.CreateFtdcMdApi(Pointer.pointerToCString("./"),false,false).get();
+        BridJ.protectFromGC(mdApi);
 
-        CThostFtdcMdSpi mdSpi = new MdSpi();
-
+        CThostFtdcMdSpi mdSpi = new MdSpi(mdApi);
+        BridJ.protectFromGC(mdSpi);
         mdApi.RegisterSpi(Pointer.pointerTo(mdSpi));
 
-        mdApi.RegisterFront(Pointer.pointerToCString("180.168.146.187:10031"));
+        mdApi.RegisterFront(Pointer.pointerToCString("tcp://180.168.146.187:10031"));
 
         mdApi.Init();
         mdApi.Join();
