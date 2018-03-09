@@ -1,4 +1,5 @@
 package com.xceder.ctp.market;
+import org.bridj.BridJ;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Ptr;
@@ -12,6 +13,9 @@ import org.bridj.cpp.CPPObject;
  */
 @Library("Thostmduserapi") 
 public class CThostFtdcMdSpi extends CPPObject {
+	static {
+		BridJ.register();
+	}
 	/**
 	 * \ufffd\ufffd\ufffd\u037b\ufffd\ufffd\ufffd\ufffd\ubf7b\ufffd\u05fa\ufffd\u0328\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u0368\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u02b1\ufffd\ufffd\ufffd\ufffd\u03b4\ufffd\ufffd\u00bc\u01f0\ufffd\ufffd\ufffd\ufffd\ufffd\u00f7\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u00e1\ufffd<br>
 	 * Original signature : <code>void OnFrontConnected()</code><br>
