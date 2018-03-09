@@ -2,6 +2,7 @@ package com.xceder.demo;
 
 import com.xceder.ctp.market.*;
 import org.bridj.Pointer;
+import org.bridj.ann.Virtual;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,7 +14,7 @@ import org.bridj.Pointer;
  */
 public class MdSpi extends CThostFtdcMdSpi{
     CThostFtdcMdApi mdApi;
-    @Override
+    @Virtual(0)
     public void OnFrontConnected() {
         System.out.println("OnFrontConnected");
         CThostFtdcReqUserLoginField userLoginField = new CThostFtdcReqUserLoginField();
@@ -23,14 +24,14 @@ public class MdSpi extends CThostFtdcMdSpi{
         int iResult = mdApi.ReqUserLogin(Pointer.getPointer(userLoginField),0);
     }
 
-    @Override
+    @Virtual(1)
     public void OnFrontDisconnected(int nReason) {
         System.out.println("OnFrontDisconnected");
         System.out.println(nReason);
 
     }
 
-    @Override
+    @Virtual(2)
     public void OnRspUserLogin(Pointer<CThostFtdcRspUserLoginField> pRspUserLogin, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspUserLogin");
         System.out.println("获取当前交易日"+this.mdApi.GetTradingDay());
@@ -42,32 +43,32 @@ public class MdSpi extends CThostFtdcMdSpi{
     }
 
 
-    @Override
+    @Virtual(3)
     public void OnRspError(Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspError");
     }
 
-    @Override
+    @Virtual(4)
     public void OnRspSubMarketData(Pointer<CThostFtdcSpecificInstrumentField> pSpecificInstrument, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspSubMarketData");
     }
 
-    @Override
+    @Virtual(5)
     public void OnRspUnSubMarketData(Pointer<CThostFtdcSpecificInstrumentField> pSpecificInstrument, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspUnSubMarketData");
     }
 
-    @Override
+    @Virtual(6)
     public void OnRspSubForQuoteRsp(Pointer<CThostFtdcSpecificInstrumentField> pSpecificInstrument, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspSubForQuoteRsp");
     }
 
-    @Override
+    @Virtual(7)
     public void OnRspUnSubForQuoteRsp(Pointer<CThostFtdcSpecificInstrumentField> pSpecificInstrument, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspUnSubForQuoteRsp");
     }
 
-    @Override
+    @Virtual(8)
     public void OnRtnForQuoteRsp(Pointer<CThostFtdcForQuoteRspField> pForQuoteRsp) {
     }
 
