@@ -26,6 +26,7 @@ public class MdSpi extends CThostFtdcMdSpi{
         userLoginField.setBrokerID("9999");
         userLoginField.setUserID("xpyl");
         userLoginField.setPassword("yaoling520");
+        System.out.println(userLoginField.BrokerID());
         this.mdApi.ReqUserLogin(Pointer.pointerTo(userLoginField),1);
     }
 
