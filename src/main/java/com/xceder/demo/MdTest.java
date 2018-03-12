@@ -15,8 +15,6 @@ import org.bridj.Pointer;
  */
 public class MdTest {
     public static void main(String[] args) {
-        System.loadLibrary("thosttraderapi");
-        System.loadLibrary("thostmduserapi");
         CThostFtdcMdApi mdApi = CThostFtdcMdApi.CreateFtdcMdApi(Pointer.pointerToCString("./"),false,false).get();
 
         CThostFtdcMdSpi mdSpi = new MdSpi(mdApi);
