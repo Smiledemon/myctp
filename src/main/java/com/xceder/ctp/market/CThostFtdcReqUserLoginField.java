@@ -124,10 +124,10 @@ public class CThostFtdcReqUserLoginField extends StructObject {
     }
 
 	public void setUserID(String userID) {
-		this.io.getPointerField(this,1).setCString(userID);
+		this.io.getPointerField(this,2).setCString(userID);
 	}
 
 	public void setPassword(String password) {
-		this.io.getPointerField(this,1).setCString(password);
+		this.io.getPointerField(this,3).setCString(password);
 	}
 }

@@ -15,13 +15,11 @@ import org.bridj.Pointer;
  */
 public class MdTest {
     public static void main(String[] args) {
-        BridJ.register(CThostFtdcMdApi.class);
-        BridJ.register(CThostFtdcMdSpi.class);
+        System.loadLibrary("thosttraderapi");
+        System.loadLibrary("thostmduserapi");
         CThostFtdcMdApi mdApi = CThostFtdcMdApi.CreateFtdcMdApi(Pointer.pointerToCString("./"),false,false).get();
-        BridJ.protectFromGC(mdApi);
 
         CThostFtdcMdSpi mdSpi = new MdSpi(mdApi);
-        BridJ.protectFromGC(mdSpi);
         mdApi.RegisterSpi(Pointer.pointerTo(mdSpi));
 
         mdApi.RegisterFront(Pointer.pointerToCString("tcp://180.168.146.187:10031"));

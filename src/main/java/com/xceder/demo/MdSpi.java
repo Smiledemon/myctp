@@ -14,12 +14,13 @@ import org.bridj.ann.Virtual;
  */
 public class MdSpi extends CThostFtdcMdSpi{
     CThostFtdcMdApi mdApi;
+    int iRequestID=0;
 
     public MdSpi(CThostFtdcMdApi mdApi) {
         this.mdApi = mdApi;
     }
 
-    @Virtual(0)
+    @Override
     public void OnFrontConnected() {
         System.out.println("OnFrontConnected");
         CThostFtdcReqUserLoginField userLoginField = new CThostFtdcReqUserLoginField();
@@ -27,54 +28,23 @@ public class MdSpi extends CThostFtdcMdSpi{
         userLoginField.setUserID("xpyl");
         userLoginField.setPassword("yaoling520");
         System.out.println(userLoginField.BrokerID());
-        this.mdApi.ReqUserLogin(Pointer.pointerTo(userLoginField),1);
+        this.mdApi.ReqUserLogin(Pointer.pointerTo(userLoginField),iRequestID++);
     }
 
-    @Virtual(1)
+    @Override
     public void OnFrontDisconnected(int nReason) {
         System.out.println("OnFrontDisconnected");
         System.out.println(nReason);
 
     }
 
-    @Virtual(2)
+    @Override
     public void OnRspUserLogin(Pointer<CThostFtdcRspUserLoginField> pRspUserLogin, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspUserLogin");
         System.out.println("获取当前交易日"+this.mdApi.GetTradingDay());
-        int result= this.mdApi.SubscribeMarketData(Pointer.pointerToCStrings("IF1612"),1);
-        result= this.mdApi.SubscribeMarketData(Pointer.pointerToCStrings("IF1701"),1);
+        int result= mdApi.SubscribeMarketData(Pointer.pointerToCStrings("IF1612"),1);
         System.out.println(result == 0 ? "成功" : "失败");
 
-    }
-
-
-    @Virtual(3)
-    public void OnRspError(Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
-        System.out.println("OnRspError");
-    }
-
-    @Virtual(4)
-    public void OnRspSubMarketData(Pointer<CThostFtdcSpecificInstrumentField> pSpecificInstrument, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
-        System.out.println("OnRspSubMarketData");
-    }
-
-    @Virtual(5)
-    public void OnRspUnSubMarketData(Pointer<CThostFtdcSpecificInstrumentField> pSpecificInstrument, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
-        System.out.println("OnRspUnSubMarketData");
-    }
-
-    @Virtual(6)
-    public void OnRspSubForQuoteRsp(Pointer<CThostFtdcSpecificInstrumentField> pSpecificInstrument, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
-        System.out.println("OnRspSubForQuoteRsp");
-    }
-
-    @Virtual(7)
-    public void OnRspUnSubForQuoteRsp(Pointer<CThostFtdcSpecificInstrumentField> pSpecificInstrument, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
-        System.out.println("OnRspUnSubForQuoteRsp");
-    }
-
-    @Virtual(8)
-    public void OnRtnForQuoteRsp(Pointer<CThostFtdcForQuoteRspField> pForQuoteRsp) {
     }
 
 }
