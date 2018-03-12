@@ -55,7 +55,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.xceder.demo.TestTrade</mainClass>
+                            <mainClass>com.xceder.demo.MdTest</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

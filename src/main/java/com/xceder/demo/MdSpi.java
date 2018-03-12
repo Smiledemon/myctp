@@ -15,7 +15,7 @@ import org.bridj.ann.Virtual;
 public class MdSpi extends CThostFtdcMdSpi{
     CThostFtdcMdApi mdApi;
     int iRequestID=0;
-
+    String[] array ={"IF1612"};
     public MdSpi(CThostFtdcMdApi mdApi) {
         this.mdApi = mdApi;
     }
@@ -42,7 +42,8 @@ public class MdSpi extends CThostFtdcMdSpi{
     public void OnRspUserLogin(Pointer<CThostFtdcRspUserLoginField> pRspUserLogin, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspUserLogin");
         System.out.println("获取当前交易日"+this.mdApi.GetTradingDay());
-        int result= mdApi.SubscribeMarketData(Pointer.pointerToCStrings("IF1612"),1);
+
+        int result= mdApi.SubscribeMarketData(Pointer.pointerToArray(array),1);
         System.out.println(result == 0 ? "成功" : "失败");
 
     }
