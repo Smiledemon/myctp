@@ -4,6 +4,8 @@ import com.xceder.ctp.market.*;
 import org.bridj.Pointer;
 import org.bridj.ann.Virtual;
 
+import static org.bridj.Pointer.getPointer;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -15,7 +17,7 @@ import org.bridj.ann.Virtual;
 public class MdSpi extends CThostFtdcMdSpi{
     CThostFtdcMdApi mdApi;
     int iRequestID=0;
-    String[] array ={"IF1612"};
+    String[] array ={"cu1309"};
     public MdSpi(CThostFtdcMdApi mdApi) {
         this.mdApi = mdApi;
     }
@@ -25,10 +27,10 @@ public class MdSpi extends CThostFtdcMdSpi{
         System.out.println("OnFrontConnected");
         CThostFtdcReqUserLoginField userLoginField = new CThostFtdcReqUserLoginField();
         userLoginField.setBrokerID("9999");
-        userLoginField.setUserID("xpyl");
-        userLoginField.setPassword("888888");
+        userLoginField.setUserID("113705");
+        userLoginField.setPassword("666666");
         System.out.println(userLoginField.BrokerID());
-        this.mdApi.ReqUserLogin(Pointer.pointerTo(userLoginField),iRequestID++);
+        this.mdApi.ReqUserLogin(getPointer(userLoginField),iRequestID++);
     }
 
     @Override
