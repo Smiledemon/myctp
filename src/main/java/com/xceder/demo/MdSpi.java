@@ -26,7 +26,7 @@ public class MdSpi extends CThostFtdcMdSpi{
         CThostFtdcReqUserLoginField userLoginField = new CThostFtdcReqUserLoginField();
         userLoginField.setBrokerID("9999");
         userLoginField.setUserID("xpyl");
-        userLoginField.setPassword("yaoling520");
+        userLoginField.setPassword("888888");
         System.out.println(userLoginField.BrokerID());
         this.mdApi.ReqUserLogin(Pointer.pointerTo(userLoginField),iRequestID++);
     }
@@ -39,13 +39,34 @@ public class MdSpi extends CThostFtdcMdSpi{
     }
 
     @Override
-    public void OnRspUserLogin(Pointer<CThostFtdcRspUserLoginField> pRspUserLogin, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
+    public void OnRspUserLogin(Pointer<CThostFtdcRspUserLoginField> pRsplsUserLogin, Pointer<CThostFtdcRspInfoField> pRspInfo, int nRequestID, boolean bIsLast) {
         System.out.println("OnRspUserLogin");
         System.out.println("获取当前交易日"+this.mdApi.GetTradingDay());
 
-        int result= mdApi.SubscribeMarketData(Pointer.pointerToArray(array),1);
+        int result= mdApi.SubscribeMarketData(Pointer.pointerToCStrings(array),1);
         System.out.println(result == 0 ? "成功" : "失败");
 
     }
 
+    @Override
+    public void OnRtnDepthMarketData(Pointer<CThostFtdcDepthMarketDataField> pDepthMarketData) {
+        CThostFtdcDepthMarketDataField data = pDepthMarketData.get();
+        System.out.println("OnRtnDepthMarketData : " + this.ToString_CThostFtdcDepthMarketDataField( data ));
+    }
+
+
+    private String ToString_CThostFtdcDepthMarketDataField( CThostFtdcDepthMarketDataField data )
+    {
+        return String.format( "%s %s.%03d %f %d %f %d %f %d" ,
+                data.InstrumentID().getCString( )  ,
+                data.UpdateTime().getCString( ) ,
+                data.UpdateMillisec( ) ,
+                data.LastPrice( ) ,
+                data.Volume( ) ,
+                data.AskPrice1( ) ,
+                data.AskVolume1( ) ,
+                data.BidPrice1( ) ,
+                data.BidVolume1( )
+        ) ;
+    }
 }

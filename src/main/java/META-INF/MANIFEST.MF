@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: mycto.jar
+Main-Class: com.xceder.demo.MdTest
+

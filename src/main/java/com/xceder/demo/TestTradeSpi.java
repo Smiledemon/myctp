@@ -22,7 +22,7 @@ public class TestTradeSpi extends CThostFtdcTraderSpi
     //private String m_userID = "00000080" ;    // 中大期货
     //private String m_brokerID = "1002" ;
     //private String m_userID = "00000063" ;    // 上海中期
-    private String m_password = "yaoling520" ;
+    private String m_password = "888888" ;
     private String m_testInstrumentID = "IF1612" ;
     private double m_testLimitPrice = 2569.40 ;
     private int m_frontID ;

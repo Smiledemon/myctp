@@ -5,6 +5,8 @@ import com.xceder.ctp.market.CThostFtdcMdSpi;
 import org.bridj.BridJ;
 import org.bridj.Pointer;
 
+import static org.bridj.Pointer.getPointer;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -15,11 +17,12 @@ import org.bridj.Pointer;
  */
 public class MdTest {
     public static void main(String[] args) {
+
         BridJ.register(CThostFtdcMdApi.class);
-        CThostFtdcMdApi mdApi = CThostFtdcMdApi.CreateFtdcMdApi(Pointer.pointerToCString("./"),false,false).get();
         BridJ.register(CThostFtdcMdSpi.class);
+        CThostFtdcMdApi mdApi = CThostFtdcMdApi.CreateFtdcMdApi(Pointer.pointerToCString("./"),false,false).get();
         CThostFtdcMdSpi mdSpi = new MdSpi(mdApi);
-        mdApi.RegisterSpi(Pointer.pointerTo(mdSpi));
+        mdApi.RegisterSpi(getPointer(mdSpi));
         mdApi.RegisterFront(Pointer.pointerToCString("tcp://180.168.146.187:10031"));
         mdApi.Init();
         mdApi.Join();
